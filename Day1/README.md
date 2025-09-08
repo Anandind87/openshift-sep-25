@@ -1,5 +1,21 @@
 # Day 1
 
+## Info - Server grade Processors
+<pre>
+- Processors are packaged in Integrated Circuits(IC)
+- ICs comes in 2 Form factors
+  - SCM(Single chip module)
+    - one Processor per IC
+  - MCM(Multiple Chip module )
+    - multiple Processors per IC
+    - for example, a single IC could host 4 Processors in it
+- assume, you have a server grade motherboard that supports 8 Sockets
+  - if we install MCM Processor with 4 Processors per Socket
+  - total 4 x 8 sockets = 32 Processors
+  - assume, each Processor supports 96 physical cpu core, which means 96 x 2 = 192 virtual cores
+  - total virtual cpu cores = 192 x 32 = 6144 virtual cores
+</pre>  
+
 ## Info - Hypervisor Overview
 <pre>
 - Hypervisor is nothing but virtualization technology
