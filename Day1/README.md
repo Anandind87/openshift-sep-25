@@ -376,3 +376,15 @@ docker ps
 
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/d201769d-6c03-4048-95b3-d96c7ee4f37c" />
 
+Let's customize the response web page on nginx1, nginx2 and nginx3 web server containers
+```
+echo "Server 1" > index.html
+docker cp index.html nginx1:/usr/share/nginx/html/index.html
+
+echo "Server 2" > index.html
+docker cp index.html nginx2:/usr/share/nginx/html/index.html
+
+echo "Server 3" > index.html
+docker cp index.html nginx3:/usr/share/nginx/html/index.html
+```
+
