@@ -71,5 +71,21 @@
 </pre>
 
 ## Info - Container Runtime
+<pre>
+- is a low-level software that helps us manage container images and containers
+- interacts with OS Kernel to manage container images and containers
+- is not so user-friendly, hence end-users like us don't use this software utility directly
+- examples
+  - runC
+  - CRI-O
+</pre>
 
 ## Info - Container Engine
+<pre>
+- is a high-level software that helps us manage container images and containers
+- under the hood, it depends on Container Runtime to manage container images and containers
+- is very user-friendly
+- examples
+  - Docker
+  - Podman
+</pre>
