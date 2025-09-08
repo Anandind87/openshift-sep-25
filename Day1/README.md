@@ -286,6 +286,7 @@ docker rename ubuntu1 ubuntu1-jegan
 ```
 
 <img width="1676" height="534" alt="image" src="https://github.com/user-attachments/assets/5e52e81a-f012-4c76-b05d-0aa3b947fe22" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/e57abc87-9670-44f7-bb0f-e8ec5d8f87d9" />
 
 ## Lab - Finding detailed information about your container
 ```
