@@ -1,1 +1,31 @@
 # Day 1
+
+## Info - Hypervisor Overview
+<pre>
+- Hypervisor is nothing but virtualization technology
+- Virtualization technology allows to run multiple Operating Systems on a single machine
+- many OS can run simultaneously
+- this is a Hardware + Software technology
+  - Processor should support virtualization
+    - AMD Processor
+      - the virtualization feature set is called AMD-V
+    - Intel Processor
+      - the virtualization feature set is called VT-X
+    - we need a machine that supports either AMD-V or VT-X to host multiple VMs
+- there are 2 types of Hypervisors
+  - Type 1 
+    - used in Servers & Workstations
+    - a.k.a bare-metal hypervisor
+    - examples
+      - KVM
+      - VMWare vSphere/vCenter
+  - Type 2
+    - used in laptops/desktops/workstations
+    - can be installed on top of some OS( Host OS - windows, linux, mac os-x, etc., )
+    - examples
+      - VMWare Workstation ( supported in Linux & Windows )
+      - VMWare Fusion ( supported in Mac OS-X )
+      - Oracle virtualbox ( supported in Linux, Windows & Mac OS-X )
+      - Parallels ( supported in Mac OS-X )
+      - Microsoft Hyper-V
+</pre>
