@@ -300,3 +300,15 @@ docker inspect nginx1
 docker inspect nginx1 | grep IPA
 docker inspect -f {{.NetworkSettings.IPAddress}} nginx1
 ```
+
+## Lab - Inspecting docker image
+```
+docker image inspect mysql:latest
+```
+
+## Lab - Accessing containerized application logs
+```
+docker logs nginx1
+```
+
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/cb659b40-533b-482f-bf4f-07dd33ed6db1" />
