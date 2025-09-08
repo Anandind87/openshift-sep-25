@@ -248,5 +248,14 @@ docker ps
 ```
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/a58db7ae-fb6c-4b43-972a-1ff6730a500f" />
 
+## Lab - Restarting multiple containers without using their names
+```
+docker ps
+docker restart $(docker ps -q)
+docker ps
+```
+
+Expected output
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/184a49c1-6781-4bba-b341-91381f6faea0" />
 
 
