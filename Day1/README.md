@@ -222,3 +222,13 @@ docker ps -a
 
 Expected output
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/b6ee00c0-fc2f-4e70-a17f-d08a8f8a01b8" />
+
+## Lab - Stopping multiple containers with a single command
+```
+docker ps
+docker stop ubuntu2 ubuntu3
+docker ps -a
+```
+
+Expected output
+<img width="1494" height="450" alt="image" src="https://github.com/user-attachments/assets/cf747fd9-51d0-49fb-a3a7-c6e6ac3ebbc8" />
