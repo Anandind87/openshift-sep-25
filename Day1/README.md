@@ -259,3 +259,21 @@ Expected output
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/184a49c1-6781-4bba-b341-91381f6faea0" />
 
 
+## Lab - Deleting containers
+
+Delete a single running container gracefully
+```
+docker ps
+docker stop ubuntu1
+docker rm ubuntu1
+docker ps -a
+```
+
+Delete multiple containers forcibly
+```
+docker ps -a
+docker rm -f ubuntu2 ubuntu3
+docker ps -a
+```
+
+<img width="1676" height="898" alt="image" src="https://github.com/user-attachments/assets/0ecba137-6e97-46d7-b519-db5d6f8c5ef3" />
