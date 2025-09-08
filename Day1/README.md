@@ -231,4 +231,4 @@ docker ps -a
 ```
 
 Expected output
-<img width="1494" height="450" alt="image" src="https://github.com/user-attachments/assets/cf747fd9-51d0-49fb-a3a7-c6e6ac3ebbc8" />
+<img width="1676" height="590" alt="image" src="https://github.com/user-attachments/assets/de119f13-a491-4490-ba3a-3b982ebcbf52" />
