@@ -277,3 +277,12 @@ docker ps -a
 ```
 
 <img width="1676" height="898" alt="image" src="https://github.com/user-attachments/assets/0ecba137-6e97-46d7-b519-db5d6f8c5ef3" />
+
+## Lab - Rename a container
+```
+docker ps -a
+docker rename <existing-name-of-container> <new-container-name>
+docker rename ubuntu1 ubuntu1-jegan
+```
+
+<img width="1676" height="534" alt="image" src="https://github.com/user-attachments/assets/5e52e81a-f012-4c76-b05d-0aa3b947fe22" />
