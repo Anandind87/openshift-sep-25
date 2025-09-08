@@ -54,6 +54,7 @@
 </pre>
 
 ## Info - Hypervisor High-Level Architecture
+![Hypervisor](HypervisorHighLevelArchitecture.png)
 
 ## Info - Containerization
 <pre>
@@ -92,5 +93,5 @@
   - Podman
 </pre>
 
-## Info - Hypervisor High-Level Architecture
-![Hypervisor](HypervisorHighLevelArchitecture.png)
+## Info - Docker High-Level Architecture
+![Docker](DockerHighLevelArchitecture.png)
