@@ -13,6 +13,7 @@ https://forms.office.com/r/C8egBDcSQW
 
 Note
 <pre>
+- complete the test from Cloud Lab Machine
 - While registering for pre-test, type your full name
 - Do not share your BOFA email, kindly use your personal email
 - Copy/Paste will not work between your work machine and Palmeto cloud lab
