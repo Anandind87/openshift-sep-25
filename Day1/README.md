@@ -159,3 +159,14 @@ docker images
 
 Expected output
 <img width="1146" height="718" alt="image" src="https://github.com/user-attachments/assets/41a96690-5ef3-4314-b8bf-2a5372bfcce1" />
+
+## Lab - Download ubuntu image from Docker Hub Remote Registry to Local Docker Registry
+```
+docker pull ubuntu:latest
+docker pull mysql:latest
+docker pull wordpress:latest
+docker pull nginx:latest
+docker pull nginx:1.18
+docker pull nginx:1.19
+docker images
+```
