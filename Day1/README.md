@@ -195,3 +195,15 @@ docker ps
 
 Expected output
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/8db74c1d-cc72-4d31-b862-8d7710d5e0cc" />
+
+## Lab - Getting inside the running container shell
+```
+docker ps
+docker exec -it ubuntu1 /bin/bash
+hostname
+hostname -i
+exit
+```
+
+Expected output
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/84f95993-e29d-4617-9095-829180a5afea" />
