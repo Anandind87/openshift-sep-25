@@ -178,6 +178,15 @@ docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:latest /bin/bash
 docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:latest /bin/bash
 docker run -dit --name ubuntu3 --hostname ubuntu3 ubuntu:latest /bin/bash
 ```
+In the above command
+<pre>
+d - indicates you wish to run the container in the background(daemon) mode
+it - indicates interactive terminal
+name - name of the container
+hostname - hostname of the container
+ubuntu:latest - docker image name
+/bin/bash - indicates we wanted to run the bash terminal inside the container
+</pre>
 
 List the running containers
 ```
