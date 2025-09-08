@@ -62,4 +62,14 @@
 - containers don't get their own dedicated hardware resources, hence it is referred as light-weight virtualization
 - containers don't have their own OS kernel
 - container technology is not a replacement for Virtualization or Operating System
+- Linux Kernel features that enables containerization
+  1. Control Groups ( CGroups ) 
+    - helps in applying resource quota restricts on the container level
+    - using this feature, one can restrict how much CPU, RAM or Storage one container can utilize at the max at any point of time
+  2. Namespace
+    - helps in isolatating one container from other containers running on the same Host OS
 </pre>
+
+## Info - Container Runtime
+
+## Info - Container Engine
