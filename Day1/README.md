@@ -53,6 +53,8 @@
 - each VM represents one fully-functional Operating System
 </pre>
 
+## Info - Hypervisor High-Level Architecture
+
 ## Info - Containerization
 <pre>
 - is an application virtualization technology
@@ -89,3 +91,6 @@
   - Docker
   - Podman
 </pre>
+
+## Info - Hypervisor High-Level Architecture
+![Hypervisor](HypervisorHighLevelArchitecture.png)
