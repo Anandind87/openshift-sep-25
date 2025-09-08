@@ -177,7 +177,6 @@ Create a container and run it in background
 docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:latest /bin/bash
 docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:latest /bin/bash
 docker run -dit --name ubuntu3 --hostname ubuntu3 ubuntu:latest /bin/bash
-
 ```
 
 List the running containers
