@@ -312,3 +312,37 @@ docker logs nginx1
 ```
 
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/cb659b40-533b-482f-bf4f-07dd33ed6db1" />
+
+## Lab - Setup a Load Balancer using nginx image
+Delete any existing containers
+```
+docker rm -f $(docker ps -aq)
+```
+
+Create 3 web server containers
+```
+docker run -d --name nginx1 --hostname nginx1 nginx:latest
+docker run -d --name nginx2 --hostname nginx2 nginx:latest
+docker run -d --name nginx3 --hostname nginx3 nginx:latest
+```
+
+List all the 3 web server containers
+```
+docker ps
+```
+
+Find the IP addresses of all 3 web server containers
+```
+docker inspect -f {{.NetworkSettings.IPAddress}} nginx1
+docker inspect -f {{.NetworkSettings.IPAddress}} nginx2
+docker inspect -f {{.NetworkSettings.IPAddress}} nginx3
+```
+
+Let's create the loadbalancer container
+```
+docker run -d --name lb --hostname lb -p 8080:80 nginx:latest
+docker ps
+```
+
+
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/b40f19c1-edd1-4437-8c48-faa6626c8291" />
