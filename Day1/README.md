@@ -232,3 +232,21 @@ docker ps -a
 
 Expected output
 <img width="1676" height="590" alt="image" src="https://github.com/user-attachments/assets/de119f13-a491-4490-ba3a-3b982ebcbf52" />
+
+## Lab - Starting containers
+Starting a single container
+```
+docker ps -a
+docker start ubuntu1
+docker ps
+```
+Starting multiple containers 
+```
+docker ps -a
+docker start ubuntu2 ubuntu3
+docker ps
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/a58db7ae-fb6c-4b43-972a-1ff6730a500f" />
+
+
+
