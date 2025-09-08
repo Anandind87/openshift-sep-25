@@ -354,3 +354,7 @@ ls
 cat nginx.conf
 ```
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/32989a4d-56bb-419c-a4d1-9ad31ab243f2" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/29e896a6-f618-4b02-ae41-913ca67cdfe3" />
+
+Updated nginx.conf file should look as shown below
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/7182b2b4-1ddc-4465-b007-d0ab2be8afc0" />
