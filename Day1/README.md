@@ -387,4 +387,5 @@ docker cp index.html nginx2:/usr/share/nginx/html/index.html
 echo "Server 3" > index.html
 docker cp index.html nginx3:/usr/share/nginx/html/index.html
 ```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/ff021a71-f1e3-4709-a575-5ba7894a96fd" />
 
