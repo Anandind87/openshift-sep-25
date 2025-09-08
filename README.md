@@ -16,4 +16,5 @@ Note
 - While registering for pre-test, type your full name
 - Do not share your BOFA email, kindly use your personal email
 - Copy/Paste will not work between your work machine and Palmeto cloud lab
+- Once you all complete the pre-test, let's proceed with the training
 </pre>
