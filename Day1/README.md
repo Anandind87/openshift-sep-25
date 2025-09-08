@@ -358,3 +358,18 @@ cat nginx.conf
 
 Updated nginx.conf file should look as shown below
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/7182b2b4-1ddc-4465-b007-d0ab2be8afc0" />
+
+We need to copy the updated nginx.conf from local machine to the lb container
+```
+docker cp nginx.conf lb:/etc/nginx/nginx.conf
+```
+
+Restart the lb container to apply the lb config changes
+```
+docker restart lb
+```
+
+Check if the lb container is still running after the lb config changes made
+```
+docker ps
+```
