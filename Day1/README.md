@@ -346,3 +346,11 @@ docker ps
 
 
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/b40f19c1-edd1-4437-8c48-faa6626c8291" />
+
+Copy the nginx.conf file from lb container to local machine
+```
+docker cp lb:/etc/nginx/nginx.conf .
+ls
+cat nginx.conf
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/32989a4d-56bb-419c-a4d1-9ad31ab243f2" />
