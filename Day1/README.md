@@ -145,3 +145,17 @@ docker images
 - all containers that runs in same namespace they can talk to each other by default
 - containers running in separate namespace won't be able to communicate with each other
 </pre>
+
+## Lab - Checking the version of docker
+```
+docker --version
+docker info
+```
+
+## Lab - Listing the docker images in your local docker registry
+```
+docker images
+```
+
+Expected output
+<img width="1146" height="718" alt="image" src="https://github.com/user-attachments/assets/41a96690-5ef3-4314-b8bf-2a5372bfcce1" />
