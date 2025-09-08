@@ -373,3 +373,6 @@ Check if the lb container is still running after the lb config changes made
 ```
 docker ps
 ```
+
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/d201769d-6c03-4048-95b3-d96c7ee4f37c" />
+
