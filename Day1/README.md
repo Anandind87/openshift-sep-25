@@ -207,3 +207,18 @@ exit
 
 Expected output
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/84f95993-e29d-4617-9095-829180a5afea" />
+
+## Lab - Stopping a running container
+```
+docker ps
+docker stop ubuntu1
+
+# Listing only running containers
+docker ps
+
+# Listing all containers even if they aren't running
+docker ps -a
+```
+
+Expected output
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/b6ee00c0-fc2f-4e70-a17f-d08a8f8a01b8" />
