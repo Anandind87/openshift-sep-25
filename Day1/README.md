@@ -44,4 +44,22 @@
       - Oracle virtualbox ( supported in Linux, Windows & Mac OS-X )
       - Parallels ( supported in Mac OS-X )
       - Microsoft Hyper-V
+- the Operating systems that run within the Virtual Machine(VM) are called Guest OS
+- for each VM dedicated Hardware resources must be allocated
+  - CPU Cores
+  - RAM
+  - Storage ( HDD/SDD )
+- hence, this type of virtualization is called heavy-weight virtualization
+- each VM represents one fully-functional Operating System
+</pre>
+
+## Info - Containerization
+<pre>
+- is an application virtualization technology
+- each container represents one application process
+- containers running on the same machine/OS shares the hardware resources on the Host OS
+- containers are not Operating System
+- containers don't get their own dedicated hardware resources, hence it is referred as light-weight virtualization
+- containers don't have their own OS kernel
+- container technology is not a replacement for Virtualization or Operating System
 </pre>
