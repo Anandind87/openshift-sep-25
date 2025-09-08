@@ -95,3 +95,28 @@
 
 ## Info - Docker High-Level Architecture
 ![Docker](DockerHighLevelArchitecture.png)
+
+## Info - Container Image
+<pre>
+- is a blueprint of a container
+- within a single container image, we can create any number of container instances called containers
+- they are similar to windows10.iso image
+</pre>  
+
+## Info - Containers
+<pre>
+- is a running instance of a Container Image
+- every container runs in a separate namespace
+- each container has a 
+  - unique name
+  - unique id
+  - unique hostname
+  - unique IP Private ( Private IP )
+  - dedicated network stack ( 7 OSI Layers )
+  - one or more dedicated Network Cards ( software defined virtual network cards similar to virtualization )
+  - its own file system
+- one container represents one application
+- container to container is possible
+- all containers that runs in same namespace they can talk to each other by default
+- containers running in separate namespace won't be able to communicate with each other
+</pre>
