@@ -286,3 +286,16 @@ docker rename ubuntu1 ubuntu1-jegan
 ```
 
 <img width="1676" height="534" alt="image" src="https://github.com/user-attachments/assets/5e52e81a-f012-4c76-b05d-0aa3b947fe22" />
+
+## Lab - Finding detailed information about your container
+```
+docker inspect nginx1
+```
+
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/e0bf2f77-6e40-4714-a22f-0a77fa5e1d7b" />
+
+## Lab - Finding IP Address of a container
+```
+docker inspect nginx1 | grep IPA
+docker inspect -f {{.NetworkSettings.IPAddress}} nginx1
+```
