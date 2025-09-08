@@ -170,3 +170,14 @@ docker pull nginx:1.18
 docker pull nginx:1.19
 docker images
 ```
+
+## Lab - Creating a container in background mode(daemon)
+Create a container and run it in background
+```
+docker run -dit --name ubuntu1 --hostname ubuntu1 ubuntu:latest /bin/bash
+```
+
+List the running containers
+```
+docker ps
+```
