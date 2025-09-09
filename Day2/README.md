@@ -56,7 +56,7 @@
   - is a collection of related containers
   - technically any number of containers can be there in a Pod
   - IP address is assigned on the pod level not on the container level
-  - Port Range 0-65535 is available on the Pod level, hence all containers within the Pod shares the same ports
+  - Port Range 0-65535 is available on the Pod level, hence all containers within the Pod has a common port range on the Pod level
   - Assume Pod P1 has Containers C1 and C2, if Container C1 is using port 8000 then Container C2 won't be able to use it as it is already taken by Container C1
 </pre>
 
