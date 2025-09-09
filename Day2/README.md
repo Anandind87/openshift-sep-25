@@ -289,8 +289,14 @@ oc delete deploy/nginx
 
 ## Lab - Deploy nginx using rootless bitnami/nginx image
 ```
+# Server 1
+oc create deploy nginx --image=image-registry.openshift-image-registry.svc:5000/openshift/nginx:1.27 --replicas=3
+
+# Server 2
 oc create deploy nginx --image=image-registry.openshift-image-registry.svc:5000/openshift/nginx:1.26 --replicas=3
 
 oc get deploy,rs,po
 oc get po -o wide
 ```
+
+## Lab - Editing already existing 
