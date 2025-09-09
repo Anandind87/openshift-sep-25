@@ -389,3 +389,16 @@ docker cp index.html nginx3:/usr/share/nginx/html/index.html
 ```
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/ff021a71-f1e3-4709-a575-5ba7894a96fd" />
 
+
+## Lab - Building a custom docker image
+
+Clone the TekTutor Training Repository
+```
+cd ~
+git clone https://github.com/tektutor/openshift-sep-2025.git
+cd openshift-sep-2025/Day1/CustomDockerImage
+cat Dockerfile
+docker build -t myubuntu:1.0 .
+```
+Expected output
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/68551039-0496-4a1f-91a0-45b1abebb59b" />
