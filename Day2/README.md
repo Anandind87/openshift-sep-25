@@ -199,3 +199,9 @@ oc new-project jegan
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/bf06e435-13b8-4c09-93c8-e5c346f6c7e0" />
 
 
+## Lab - Checking your current active project
+```
+oc project
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/b59289ba-11d9-441a-8ba4-2fe239417370" />
+
