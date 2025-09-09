@@ -72,3 +72,6 @@
   - We could create multiple users, teams, with specific permission and access restrictions
 - Using the Kubernetes CRD and Operators, Red Hat was able to support many additional features on top of Kubernetes
 </pre>
+
+## Info - Red Hat Openshift High-Level Architecture
+![Openshift](openshiftArchitecture.png)
