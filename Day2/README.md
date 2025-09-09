@@ -227,3 +227,37 @@ Switching back to your project
 oc project jegan
 ```
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/c27462d6-487f-4d45-b1fb-62d2f3efcbcb" />
+
+## Lab - Deploying your first application into openshift
+Make sure you are in your project
+```
+oc project jegan
+```
+
+Let's deploy nginx web server into openshift under 'jegan' namespace
+```
+oc create deployment nginx --image=nginx:latest --replicas=3
+```
+
+List the deployments
+```
+oc get deployments
+oc get deployment
+oc get deploy
+```
+
+List the replicasets
+```
+oc get replicasets
+oc get replicaset
+oc get rs
+```
+
+List the pods
+```
+oc get pods
+oc get pod
+oc get po
+```
+
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/e7a4574a-5dee-411b-be81-8645e506ed7e" />
