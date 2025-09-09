@@ -205,3 +205,25 @@ oc project
 ```
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/b59289ba-11d9-441a-8ba4-2fe239417370" />
 
+## Lab - Switching between projects
+Listing all projects
+```
+oc projects
+oc get projects
+oc get project
+
+oc get namespaces
+oc get namespace
+oc get ns
+```
+
+Switching to default project
+```
+oc project default
+```
+
+Switching back to your project
+```
+oc project jegan
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/c27462d6-487f-4d45-b1fb-62d2f3efcbcb" />
