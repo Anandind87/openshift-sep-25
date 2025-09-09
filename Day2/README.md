@@ -136,6 +136,38 @@
 - technically a Pod may have any number of containers
 - as a best-practice, there should be only one main application container per Pod
 - however, a Pod may have some support containers a.k.a side-car containers optionally
+- Pod is a configuration (YAML document) which is stored inside etcd database by API Server
+</pre>
+
+## Info - ReplicaSet
+<pre>
+- is a Kubernetes/Openshift resource/object
+- it captures the desired number of Pods instances that be running,
+- it also captures how many Pods are currently running
+- it also captures how many Pods are ready to server user traffic
+- the container image that must be used to deploy your application
+- in short, it is a configuration (YAML document) which is stored inside etcd database by API Server
+</pre>
+
+## Info - Deployment
+<pre>
+- is a Kubernetes/Openshift resource/object
+- it represents your application
+- it captures the name of your application 
+- it captures the desired number of Pods that must be created
+- the container image that must be used to deploy your application
+- it is used to deploy stateless application
+</pre>
+
+## Info - Deployment Controller
+<pre>
+- it is a Pod that is part of Controller Managers ( one of the Control Plane Component )
+- manages Deployment Resource
+- it constantly looks for ( it gets notified by API Server events related to Deployment )
+  - new deployment created
+  - deployment edited/deleted
+  - deployment scaled up/down
+- this controller used Deployment as the input
 </pre>
 
 ## Lab - Check your lab environment for Openshift
