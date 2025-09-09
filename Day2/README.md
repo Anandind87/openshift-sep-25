@@ -134,3 +134,15 @@ oc get nodes -o wide
 ```
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/b67eddb5-d246-4017-bc97-37132baf17eb" />
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/a509f045-695a-4339-8055-1c6f1e788bad" />
+
+## Lab - Finding more details about nodes
+```
+oc describe node/master01.ocp4.palmeto.org
+oc describe node/master02.ocp4.palmeto.org
+oc describe node/master03.ocp4.palmeto.org
+oc describe node/worker01.ocp4.palmeto.org
+oc describe node/worker02.ocp4.palmeto.org
+oc describe node/worker03.ocp4.palmeto.org
+
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/a2bad996-3e25-45a0-9b83-76203c253e0c" />
