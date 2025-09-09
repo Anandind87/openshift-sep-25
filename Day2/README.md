@@ -191,3 +191,11 @@ oc describe node/worker03.ocp4.palmeto.org
 
 ```
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/a2bad996-3e25-45a0-9b83-76203c253e0c" />
+
+## Lab - Creating a project in your name
+```
+oc new-project jegan
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/bf06e435-13b8-4c09-93c8-e5c346f6c7e0" />
+
+
