@@ -123,3 +123,13 @@
 - this component is responsible to identify healthy nodes where user applications can be deployed
 - the scheduling recommendataions are shared by Scheduler to the API Server via REST call
 </pre>
+
+
+## Lab - Check your lab environment for Openshift
+```
+oc version
+kubectl version
+oc get nodes
+oc get nodes -o wide
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/b67eddb5-d246-4017-bc97-37132baf17eb" />
