@@ -280,3 +280,16 @@ oc get po
 ```
 
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/e7a4574a-5dee-411b-be81-8645e506ed7e" />
+
+## Lab - Delete the nginx deployment under your project
+```
+oc project jegan
+oc delete deploy/nginx
+```
+
+## Lab - Deploy nginx using rootless bitnami/nginx image
+```
+oc create deploy nginx --image=image-registry.openshift-image-registry.svc:5000/openshift/nginx:1.26 --replicas=3
+
+oc get deploy,rs,po
+```
