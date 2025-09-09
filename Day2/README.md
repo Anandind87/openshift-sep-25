@@ -168,6 +168,25 @@
   - deployment edited/deleted
   - deployment scaled up/down
 - this controller used Deployment as the input
+- the Deployment Controller is the one which creates the Replicaset pertaining to a Deployment with the help of API Server
+- it is responsible for Rolling update
+- it monitors the deployment
+</pre>
+
+## Info - Replicaset Controller
+<pre>
+- it is a Pod which is part of Controller Managers ( one of hte Control Plane Component )
+- manages ReplicaSet resource
+- it takes ReplicaSet as the input and creates the required number of Pods with the help of API Server
+- it is responsible for Scale up/down of Pods
+- it monitors the replicaset
+</pre>
+
+## Info - Scheduler
+<pre>
+- is a Control Plane Pod
+- when it is notified by API Server event that new Pod(s) are created
+- Scheduler recommends on which node those new Pods can be deployed via REST call to API Server
 </pre>
 
 ## Lab - Check your lab environment for Openshift
