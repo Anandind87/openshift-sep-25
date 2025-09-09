@@ -88,6 +88,7 @@
 #### API Server
 <pre>
 - this is the brain of Kubernetes/Openshift
+- is a Pod
 - is supports set of REST APIs for all the container Orchestration features supported by Openshift
 - API Server is the only components that has write access to etcd database
 - all the Kubernetes/Openshift components are allowed to talk to only API Server
@@ -99,6 +100,7 @@
 #### etcd database
 <pre>
 - this is an independent opensouce key/value database used by Kubernetes and Openshift
+- is a Pod
 - it is a distributed database that normally works as a cluster of many etcd database server instances
 - they are designed to work as a cluster, and they know how to synchronize data when they are in the same cluster
 - to form a minimal cluster 3 nodes are required, hence in Openshift 3 masters are mandatory
@@ -107,6 +109,7 @@
 #### Controller Managers
 <pre>
 - it is a collection of many Controllers
+  - is a Pod
   - Deployment Controller
   - ReplicaSet Controller
   - StatefulSet Controller
@@ -120,10 +123,20 @@
 
 #### Scheduler
 <pre>
+- is a Pod
 - this component is responsible to identify healthy nodes where user applications can be deployed
 - the scheduling recommendataions are shared by Scheduler to the API Server via REST call
 </pre>
 
+## Info - Pod
+<pre>
+- is a logical grouping of many containers
+- applications runs inside containers
+- every Pod has one pause container and one main application container
+- technically a Pod may have any number of containers
+- as a best-practice, there should be only one main application container per Pod
+- however, a Pod may have some support containers a.k.a side-car containers optionally
+</pre>
 
 ## Lab - Check your lab environment for Openshift
 ```
