@@ -120,6 +120,6 @@
 
 #### Schedulers
 <pre>
-- this components is responsible to identify healthy nodes where user applications can be deployed
+- this component is responsible to identify healthy nodes where user applications can be deployed
 - the scheduling recommendataions are shared by Scheduler to the API Server via REST call
 </pre>
