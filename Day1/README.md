@@ -399,6 +399,12 @@ git clone https://github.com/tektutor/openshift-sep-2025.git
 cd openshift-sep-2025/Day1/CustomDockerImage
 cat Dockerfile
 docker build -t myubuntu:1.0 .
+
+docker run -dit --name ubuntu1 --hostname ubuntu1 myubuntu:1.0 /bin/bash
+ifconfig
+ping 8.8.8.8
+mvn --version
+exit
 ```
 Expected output
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/68551039-0496-4a1f-91a0-45b1abebb59b" />
