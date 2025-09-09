@@ -292,4 +292,5 @@ oc delete deploy/nginx
 oc create deploy nginx --image=image-registry.openshift-image-registry.svc:5000/openshift/nginx:1.26 --replicas=3
 
 oc get deploy,rs,po
+oc get po -o wide
 ```
