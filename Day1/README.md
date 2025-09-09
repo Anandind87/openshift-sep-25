@@ -402,3 +402,4 @@ docker build -t myubuntu:1.0 .
 ```
 Expected output
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/68551039-0496-4a1f-91a0-45b1abebb59b" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/be362450-b037-43d1-9323-114b146cf23f" />
