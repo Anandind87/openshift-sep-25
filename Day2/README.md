@@ -75,3 +75,51 @@
 
 ## Info - Red Hat Openshift High-Level Architecture
 ![Openshift](openshiftArchitecture.png)
+
+## Info - Control Plane Components
+<pre>
+- Control Plane Components are the heart of Kubernetes/Openshift container orchestration platform
+  1. API Server
+  2. etcd key/value database
+  3. Controller Managers
+  4. Scheduler
+</pre>
+
+#### API Server
+<pre>
+- this is the brain of Kubernetes/Openshift
+- is supports set of REST APIs for all the container Orchestration features supported by Openshift
+- API Server is the only components that has write access to etcd database
+- all the Kubernetes/Openshift components are allowed to talk to only API Server
+- the K8s/Openshift components talk to API Server via REST calls only
+- the API Server responds back via events only
+- each the API Server updates the etcd database, it sends broadcasting events
+</pre>
+
+#### etcd database
+<pre>
+- this is an independent opensouce key/value database used by Kubernetes and Openshift
+- it is a distributed database that normally works as a cluster of many etcd database server instances
+- they are designed to work as a cluster, and they know how to synchronize data when they are in the same cluster
+- to form a minimal cluster 3 nodes are required, hence in Openshift 3 masters are mandatory
+</pre>
+
+#### Controller Managers
+<pre>
+- it is a collection of many Controllers
+  - Deployment Controller
+  - ReplicaSet Controller
+  - StatefulSet Controller
+  - DaemonSet Controller
+  - Job Controller
+  - CronJob Controller
+  - Node Controller
+  - Endpoint Controller
+</pre>
+
+
+#### Schedulers
+<pre>
+- this components is responsible to identify healthy nodes where user applications can be deployed
+- the scheduling recommendataions are shared by Scheduler to the API Server via REST call
+</pre>
