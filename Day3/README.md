@@ -69,3 +69,20 @@ oc get route
 
 oc describe route/nginx
 ```
+
+## Lab - Deploying nginx using declarative style (using yaml manifest file)
+```
+oc project jegan
+oc delete deploy/nginx svc/nginx route/nginx
+
+oc create deploy nginx --image=image-registry.openshift-image-registry.svc:5000/openshift/nginx:1.27 --replicas=3 --dry-run=client -o json
+
+oc create deploy nginx --image=image-registry.openshift-image-registry.svc:5000/openshift/nginx:1.27 --replicas=3 --dry-run=client -o yaml
+oc create deploy nginx --image=image-registry.openshift-image-registry.svc:5000/openshift/nginx:1.27 --replicas=3 --dry-run=client -o yaml > nginx-deploy.yml
+
+# This will assume the nginx deploy doesn't exist in your project namespace already, otherwise it will report errors
+oc create -f nginx-deploy.yml --save-config
+
+oc get deploy,rs,po
+```
+
