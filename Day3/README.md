@@ -41,10 +41,31 @@ curl http://worker03.ocp4.palmeto.org:32100
 </pre>
 
 ## Lab - Creating an external route for nginx deployment
+Note
+<pre>
+- Openshift route feature underhood makes use of Kubernetes Ingress
+- K8s Ingress is not a service, instead it is a routing rules
+- For Ingress to work in your cluster, 3 components are required
+  - Ingress ( Your forwarding rules )
+  - Ingress Controller ( HAProxy/Nginx/F5 Ingress Controller )
+  - Load Balancer ( HAProxy/Nginx/F5/etc )
+  - assume the home page of my bank is https://www.abcbank.com
+  - the abc bank has the below links/features in their website
+    - login ( microservice ) - https://www.abcbank.com/login
+    - balance enquiry ( microservice ) - https://www.abcbank.com/balance-enquiry
+    - fund transfer ( microservice ) - https://www.abcbank.com/fund-transfer
+    - cheque book request ( microservice ) - https://www.abcbank.com/cheque-request
+    - personal loan (microservice) - https://www.abcbank.com/personal-loan
+    - car loan ( microservice ) - https://www.abcbank.com/car-loan
+    - logout ( microservice ) - https://www.abcbank.com/logout
+</pre>
+
 ```
 oc project jegan
 oc get deploy
 # The command below assumes you have a service 
 oc expose svc/nginx
 oc get route
+
+oc describe route/nginx
 ```
