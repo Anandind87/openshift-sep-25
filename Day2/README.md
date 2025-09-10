@@ -381,3 +381,15 @@ curl http://localhost:9999
 ```
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/32fcb3cb-7150-4d12-8dff-70857bee8e17" />
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/f3457c68-09a1-4caf-847d-3a7f16e93a12" />
+
+## Lab - Getting inside a pod shell
+```
+oc project jegan
+oc get pods
+oc exec -it nginx-759b9ddc77-tglb7 -- /bin/sh
+hostname
+hostname -i
+ls
+exit
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/aa8f1a92-9313-4423-bd0e-47063beab2f8" />
