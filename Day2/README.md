@@ -352,3 +352,16 @@ oc describe deploy/nginx
 oc describe rs/nginx-759b9ddc77
 oc describe pod/nginx-759b9ddc77-tglb7
 ```
+
+## Lab - Getting inside a node for debugging ( only administrators can do this )
+```
+oc get nodes
+oc debug node/master01.ocp4.palmeto.org
+chroot /host
+ls
+podman version
+crictl images
+crictl ps
+exit
+exit
+```
