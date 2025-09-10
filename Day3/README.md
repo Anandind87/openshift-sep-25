@@ -107,8 +107,15 @@ oc expose deploy/nginx --type=ClusterIP --port=8080 --dry-run=client -o yaml > n
 oc apply -f nginx-clusterip-svc.yml
 oc get svc
 ```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/a9c8cddb-4928-4925-aaeb-7ed47e862a10" />
 
 ## Lab - Creating a nodeport service in declarative style
+Delete the clusterip service before proceeding
+```
+oc delete -f nginx-clusterip-svc.yml
+```
+
+Now you may create the nodeport service
 ```
 oc project jegan
 oc get deploy
@@ -119,6 +126,12 @@ oc get svc
 ```
 
 ## Lab - Creating a loadbalancer service in declarative style
+Delete the nodeport service before proceeding
+```
+oc delete -f nginx-nodeport-svc.yml
+```
+
+Now you may create the loadbalancer service
 ```
 oc project jegan
 oc get deploy
