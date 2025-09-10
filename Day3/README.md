@@ -86,3 +86,14 @@ oc create -f nginx-deploy.yml --save-config
 oc get deploy,rs,po
 ```
 
+## Lab - Scale up nginx deployment in declarative style
+```
+oc project jegan
+oc get pods -l app=nginx
+cat nginx-deploy.yml
+#Edit nginx-deploy.yml and update replicas=3 to replicas=5, save and apply the changes as shown below
+cat nginx-deploy.yml
+
+oc apply -f nginx-deploy.yml
+oc get pods -l app=nginx
+```
