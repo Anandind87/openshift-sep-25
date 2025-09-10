@@ -393,3 +393,22 @@ ls
 exit
 ```
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/aa8f1a92-9313-4423-bd0e-47063beab2f8" />
+
+## Info - Kubernetes/Openshift Service
+<pre>
+- service represents a group of load-balance pods from a single deployment
+- service gets an unique IP Address and Name
+- Service can be accessed using its IP Address or its name
+- When a service is accessed using its name, the inbuilt DNS server within Kubernetes/Openshift resolves the name to Server IP, this is called Service discovery
+- there are 2 types of services
+  1. Internal Service
+     - ClusterIP ( kube-proxy does the load-balancing and accessible only within the cluster )
+  2. External Service
+     - NodePort ( kube-proxy does the load-balancing and can be accessed outside the cluster as well )
+     - LoadBalancer 
+       - an external load balancer will do the load-balancing functionality
+       - this is generally used in managed Kubernetes/Openshift cluster running in public cloud environment like AWS/Azure/GKE
+       - i.e generally used in AWS ROSA or Azure ARO ( Managed Openshift Clusters )
+       - in case you wish to use this in your local openshift setup, then we must install MetalLB operator and configure it in your openshift cluster
+       
+</pre>
