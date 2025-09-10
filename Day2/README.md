@@ -75,7 +75,7 @@
 
 ## Info - Red Hat Openshift High-Level Architecture
 ![Openshift](openshiftArchitecture.png)
-
+![Openshift](master-node.png)
 ## Info - Control Plane Components
 <pre>
 - Control Plane Components are the heart of Kubernetes/Openshift container orchestration platform
