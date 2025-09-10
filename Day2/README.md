@@ -409,6 +409,38 @@ exit
        - an external load balancer will do the load-balancing functionality
        - this is generally used in managed Kubernetes/Openshift cluster running in public cloud environment like AWS/Azure/GKE
        - i.e generally used in AWS ROSA or Azure ARO ( Managed Openshift Clusters )
-       - in case you wish to use this in your local openshift setup, then we must install MetalLB operator and configure it in your openshift cluster
-       
+       - in case you wish to use this in your local openshift setup, then we must install MetalLB operator and configure it in your openshift cluster       
 </pre>
+
+## Lab - Creating an internal clusterip service for nginx deployment
+```
+oc project jegan
+oc get deploy
+oc expose deploy/nginx --type=ClusterIP --port=8080
+```
+
+Listing the service
+```
+oc get services
+oc get service
+oc get svc
+```
+
+Describe the service to see detailed meta-data about service
+```
+oc describe svc/nginx
+```
+
+In order to access the clusterip internal service, let's create another test deploy 
+```
+oc create deploy test --image=tektutor/spring-ms:1.0
+oc get pods
+oc exec -it pod/your-test-pod-name -- /bin/sh
+curl http://nginx:8080
+```
+
+How the test pod is able to resolve the nginx service name to its corresponding service ip(i.e how service discovery is working)
+You need to check the /etc/resolv.conf of the test pod, when the kubelet creates the pod container, it configures the /etc/resolv.conf with the default-dns service IP i.e 172.30.0.10, which helps resolving the service name to its service ip
+```
+cat /etc/resolv.conf
+```
