@@ -345,3 +345,10 @@ oc get pods
 oc edit pod/
 ```
 
+## Lab - Using describe to find more details about deployment, replicaset and pods
+```
+oc project jegan
+oc describe deploy/nginx
+oc describe rs/nginx-759b9ddc77
+oc describe pod/nginx-759b9ddc77-tglb7
+```
