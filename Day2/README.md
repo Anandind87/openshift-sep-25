@@ -299,4 +299,49 @@ oc get deploy,rs,po
 oc get po -o wide
 ```
 
-## Lab - Editing already existing 
+## Lab - Editing already existing deployment
+```
+oc project jegan
+oc get deploy
+oc edit deploy/nginx
+```
+
+
+
+## Lab - Editing already existing replicaset
+```
+oc project jegan
+oc get rs
+oc edit rs/nginx-759b9ddc77
+```
+
+## Lab - Editing pod
+```
+oc project jegan
+oc get pods
+oc edit pod/
+```
+
+## Lab - Editing already existing deployment
+```
+oc project jegan
+oc get deploy
+oc edit deploy/nginx
+```
+
+
+## Lab - Editing already existing replicaset
+```
+oc project jegan
+oc get rs
+oc edit rs/nginx-759b9ddc77
+```
+
+
+## Lab - Editing pod
+```
+oc project jegan
+oc get pods
+oc edit pod/
+```
+
