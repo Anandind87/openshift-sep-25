@@ -140,3 +140,23 @@ oc expose deploy/nginx --type=LoadBalancer --port=8080 --dry-run=client -o yaml 
 oc apply -f nginx-lb-svc.yml
 oc get svc
 ```
+
+## Lab - Rolling update
+```
+# Assuming you have deploy 3 pods of image version 1.27
+oc apply -f nginx-deploy.yml
+oc get pods -o yaml | grep image
+
+# Edit the nginx-deploy.yml, update the image version from 1.27 to 1.28
+oc apply -f nginx-deploy.yml
+oc get pods -o yaml | grep image
+
+# Check the status of rolling update
+oc rollout status deploy/nginx
+
+# Rolling back to previous version
+oc rollout undo deploy/nginx
+
+# Check the revision history
+oc rollout history deploy/nginx
+```
