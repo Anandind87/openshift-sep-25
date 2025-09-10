@@ -97,3 +97,33 @@ cat nginx-deploy.yml
 oc apply -f nginx-deploy.yml
 oc get pods -l app=nginx
 ```
+
+## Lab - Creating a clusterip service in declarative style
+```
+oc project jegan
+oc get deploy
+oc expose deploy/nginx --type=ClusterIP --port=8080 --dry-run=client -o yaml
+oc expose deploy/nginx --type=ClusterIP --port=8080 --dry-run=client -o yaml > nginx-clusterip-svc.yml
+oc apply -f nginx-clusterip-svc.yml
+oc get svc
+```
+
+## Lab - Creating a nodeport service in declarative style
+```
+oc project jegan
+oc get deploy
+oc expose deploy/nginx --type=NodePort --port=8080 --dry-run=client -o yaml
+oc expose deploy/nginx --type=NodePort --port=8080 --dry-run=client -o yaml > nginx-nodeport-svc.yml
+oc apply -f nginx-nodeport-svc.yml
+oc get svc
+```
+
+## Lab - Creating a loadbalancer service in declarative style
+```
+oc project jegan
+oc get deploy
+oc expose deploy/nginx --type=LoadBalancer --port=8080 --dry-run=client -o yaml
+oc expose deploy/nginx --type=LoadBalancer --port=8080 --dry-run=client -o yaml > nginx-lb-svc.yml
+oc apply -f nginx-lb-svc.yml
+oc get svc
+```
