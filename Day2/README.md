@@ -365,3 +365,19 @@ crictl ps
 exit
 exit
 ```
+
+## Lab - Port forwarding to test your pod quicky ( should not be used in production )
+Do this in first terminal tab
+```
+oc project jegan
+oc get pods
+oc port-forward pod/nginx-759b9ddc77-tglb7 9999:8080
+```
+In the above command, you need to change 9999 to some available port on your machine.
+
+Open a second terminal tab
+```
+curl http://localhost:9999
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/32fcb3cb-7150-4d12-8dff-70857bee8e17" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/f3457c68-09a1-4caf-847d-3a7f16e93a12" />
