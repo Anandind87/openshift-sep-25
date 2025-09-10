@@ -1,1 +1,446 @@
 # Day 2
+
+## Info - Container Orchestration Platform Overview
+<pre>
+- provides an eco system to make your applications highly-available
+- it supports inbuilt monitoring features 
+  - to check the health of your applications
+  - repair faulty applications by restarting
+  - moving applications instances running on unreachable machine with the container orchestration platform
+  - self-healing platform
+  - it can check whether your application is live (liveliness ), readiness( is it ready to serve user traffic )
+- it allows us to scale up/down based on user traffic to your application
+- it supports rolling update
+  - upgrading your live application from one version to the other without any downtime
+  - also supports roll back
+- allows exposing your application for internal only consumption or optionally to external world using service abstraction
+- supports service discovery
+  - is a way your application can be accessed using service name in the place of IP address
+- some orchestration platform also supports user management
+  - Red Hat Openshift supports user management
+- examples
+  - Docker SWARM
+  - Google Kubernetes
+  - Red Hat Openshift
+</pre>
+
+## Info - Docker SWARM
+<pre>
+- native Orchestration Platform from Docker Inc organization
+- this container orchestration platform only supports docker containerized application workloads
+- it is lightweight, hence can be installed including laptops with average/normal configuration
+- easy to install/deploy/learn
+- used in Dev/QA environment
+- ideal for learning
+- not production grade
+</pre>
+
+## Info - Kubernetes
+<pre>
+- this is developed by Google in Go lang
+- it supports many different types of containerized worloads
+- any Container Runtime/Engine that implements CRI are supported by Kubernetes
+- supports deploying rootless and rootful container images
+- no user-management
+- supports only command-line
+- opensource, hence no support provided
+- managed Kubernetes services 
+  - AWS - EKS ( Elastic Kubernetes Service - you get support from Amazon )
+  - Azure - AKS ( Azure Kubernetes Service - you get support from Microsoft )
+- it is robust and production grade
+- supports extending the Kubernetes API/Features by creating Custom Resource Defintions ( CRD )
+- supports Operators
+  - it is combination of many Custom Resources and Custom Controllers
+- applications are deployed as something called Pod
+- Pod 
+  - is a collection of related containers
+  - technically any number of containers can be there in a Pod
+  - IP address is assigned on the pod level not on the container level
+  - Port Range 0-65535 is available on the Pod level, hence all containers within the Pod has a common port range on the Pod level
+  - Assume Pod P1 has Containers C1 and C2, if Container C1 is using port 8000 then Container C2 won't be able to use it as it is already taken by Container C1
+</pre>
+
+## Info - Red Hat Openshift
+<pre>
+- it is developed on top of opensource Google Kubernetes
+- it is superset of Kubernetes
+- in otherwords, it is Red Hat's Distribution of Kubernetes with many additional useful features
+- it supports command-line and webconsole
+- it comes with in-built performance metrics ( Prometheus and Grafan pre-integrated )
+- it has an internal image registry ( comes out of the box unlike Kubernetes )
+- supports user management
+  - We could create multiple users, teams, with specific permission and access restrictions
+- Using the Kubernetes CRD and Operators, Red Hat was able to support many additional features on top of Kubernetes
+</pre>
+
+## Info - Red Hat Openshift High-Level Architecture
+![Openshift](openshiftArchitecture.png)
+![Openshift](master-node.png)
+## Info - Control Plane Components
+<pre>
+- Control Plane Components are the heart of Kubernetes/Openshift container orchestration platform
+  1. API Server
+  2. etcd key/value database
+  3. Controller Managers
+  4. Scheduler
+</pre>
+
+#### API Server
+<pre>
+- this is the brain of Kubernetes/Openshift
+- is a Pod
+- is supports set of REST APIs for all the container Orchestration features supported by Openshift
+- API Server is the only components that has write access to etcd database
+- all the Kubernetes/Openshift components are allowed to talk to only API Server
+- the K8s/Openshift components talk to API Server via REST calls only
+- the API Server responds back via events only
+- each the API Server updates the etcd database, it sends broadcasting events
+</pre>
+
+#### etcd database
+<pre>
+- this is an independent opensouce key/value database used by Kubernetes and Openshift
+- is a Pod
+- it is a distributed database that normally works as a cluster of many etcd database server instances
+- they are designed to work as a cluster, and they know how to synchronize data when they are in the same cluster
+- to form a minimal cluster 3 nodes are required, hence in Openshift 3 masters are mandatory
+</pre>
+
+#### Controller Managers
+<pre>
+- it is a collection of many Controllers
+  - is a Pod
+  - Deployment Controller
+  - ReplicaSet Controller
+  - StatefulSet Controller
+  - DaemonSet Controller
+  - Job Controller
+  - CronJob Controller
+  - Node Controller
+  - Endpoint Controller
+</pre>
+
+
+#### Scheduler
+<pre>
+- is a Pod
+- this component is responsible to identify healthy nodes where user applications can be deployed
+- the scheduling recommendataions are shared by Scheduler to the API Server via REST call
+</pre>
+
+## Info - Pod
+<pre>
+- is a logical grouping of many containers
+- applications runs inside containers
+- every Pod has one pause container and one main application container
+- technically a Pod may have any number of containers
+- as a best-practice, there should be only one main application container per Pod
+- however, a Pod may have some support containers a.k.a side-car containers optionally
+- Pod is a configuration (YAML document) which is stored inside etcd database by API Server
+</pre>
+
+## Info - ReplicaSet
+<pre>
+- is a Kubernetes/Openshift resource/object
+- it captures the desired number of Pods instances that be running,
+- it also captures how many Pods are currently running
+- it also captures how many Pods are ready to server user traffic
+- the container image that must be used to deploy your application
+- in short, it is a configuration (YAML document) which is stored inside etcd database by API Server
+</pre>
+
+## Info - Deployment
+<pre>
+- is a Kubernetes/Openshift resource/object
+- it represents your application
+- it captures the name of your application 
+- it captures the desired number of Pods that must be created
+- the container image that must be used to deploy your application
+- it is used to deploy stateless application
+</pre>
+
+## Info - Deployment Controller
+<pre>
+- it is a Pod that is part of Controller Managers ( one of the Control Plane Component )
+- manages Deployment Resource
+- it constantly looks for ( it gets notified by API Server events related to Deployment )
+  - new deployment created
+  - deployment edited/deleted
+  - deployment scaled up/down
+- this controller used Deployment as the input
+- the Deployment Controller is the one which creates the Replicaset pertaining to a Deployment with the help of API Server
+- it is responsible for Rolling update
+- it monitors the deployment
+</pre>
+
+## Info - Replicaset Controller
+<pre>
+- it is a Pod which is part of Controller Managers ( one of hte Control Plane Component )
+- manages ReplicaSet resource
+- it takes ReplicaSet as the input and creates the required number of Pods with the help of API Server
+- it is responsible for Scale up/down of Pods
+- it monitors the replicaset
+</pre>
+
+## Info - Scheduler
+<pre>
+- is a Control Plane Pod
+- when it is notified by API Server event that new Pod(s) are created
+- Scheduler recommends on which node those new Pods can be deployed via REST call to API Server
+</pre>
+
+## Lab - Check your lab environment for Openshift
+```
+oc version
+kubectl version
+oc get nodes
+oc get nodes -o wide
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/b67eddb5-d246-4017-bc97-37132baf17eb" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/a509f045-695a-4339-8055-1c6f1e788bad" />
+
+## Lab - Finding more details about nodes
+```
+oc describe node/master01.ocp4.palmeto.org
+oc describe node/master02.ocp4.palmeto.org
+oc describe node/master03.ocp4.palmeto.org
+oc describe node/worker01.ocp4.palmeto.org
+oc describe node/worker02.ocp4.palmeto.org
+oc describe node/worker03.ocp4.palmeto.org
+
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/a2bad996-3e25-45a0-9b83-76203c253e0c" />
+
+## Lab - Creating a project in your name
+```
+oc new-project jegan
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/bf06e435-13b8-4c09-93c8-e5c346f6c7e0" />
+
+
+## Lab - Checking your current active project
+```
+oc project
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/b59289ba-11d9-441a-8ba4-2fe239417370" />
+
+## Lab - Switching between projects
+Listing all projects
+```
+oc projects
+oc get projects
+oc get project
+
+oc get namespaces
+oc get namespace
+oc get ns
+```
+
+Switching to default project
+```
+oc project default
+```
+
+Switching back to your project
+```
+oc project jegan
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/c27462d6-487f-4d45-b1fb-62d2f3efcbcb" />
+
+## Lab - Deploying your first application into openshift
+Make sure you are in your project
+```
+oc project jegan
+```
+
+Let's deploy nginx web server into openshift under 'jegan' namespace
+```
+oc create deployment nginx --image=nginx:latest --replicas=3
+```
+
+List the deployments
+```
+oc get deployments
+oc get deployment
+oc get deploy
+```
+
+List the replicasets
+```
+oc get replicasets
+oc get replicaset
+oc get rs
+```
+
+List the pods
+```
+oc get pods
+oc get pod
+oc get po
+```
+
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/e7a4574a-5dee-411b-be81-8645e506ed7e" />
+
+## Lab - Delete the nginx deployment under your project
+```
+oc project jegan
+oc delete deploy/nginx
+```
+
+## Lab - Deploy nginx using rootless bitnami/nginx image
+```
+# Server 1
+oc create deploy nginx --image=image-registry.openshift-image-registry.svc:5000/openshift/nginx:1.27 --replicas=3
+
+# Server 2
+oc create deploy nginx --image=image-registry.openshift-image-registry.svc:5000/openshift/nginx:1.26 --replicas=3
+
+oc get deploy,rs,po
+oc get po -o wide
+```
+
+## Lab - Editing already existing deployment
+```
+oc project jegan
+oc get deploy
+oc edit deploy/nginx
+```
+
+
+
+## Lab - Editing already existing replicaset
+```
+oc project jegan
+oc get rs
+oc edit rs/nginx-759b9ddc77
+```
+
+## Lab - Editing pod
+```
+oc project jegan
+oc get pods
+oc edit pod/
+```
+
+## Lab - Editing already existing deployment
+```
+oc project jegan
+oc get deploy
+oc edit deploy/nginx
+```
+
+
+## Lab - Editing already existing replicaset
+```
+oc project jegan
+oc get rs
+oc edit rs/nginx-759b9ddc77
+```
+
+
+## Lab - Editing pod
+```
+oc project jegan
+oc get pods
+oc edit pod/
+```
+
+## Lab - Using describe to find more details about deployment, replicaset and pods
+```
+oc project jegan
+oc describe deploy/nginx
+oc describe rs/nginx-759b9ddc77
+oc describe pod/nginx-759b9ddc77-tglb7
+```
+
+## Lab - Getting inside a node for debugging ( only administrators can do this )
+```
+oc get nodes
+oc debug node/master01.ocp4.palmeto.org
+chroot /host
+ls
+podman version
+crictl images
+crictl ps
+exit
+exit
+```
+
+## Lab - Port forwarding to test your pod quicky ( should not be used in production )
+Do this in first terminal tab
+```
+oc project jegan
+oc get pods
+oc port-forward pod/nginx-759b9ddc77-tglb7 9999:8080
+```
+In the above command, you need to change 9999 to some available port on your machine.
+
+Open a second terminal tab
+```
+curl http://localhost:9999
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/32fcb3cb-7150-4d12-8dff-70857bee8e17" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/f3457c68-09a1-4caf-847d-3a7f16e93a12" />
+
+## Lab - Getting inside a pod shell
+```
+oc project jegan
+oc get pods
+oc exec -it nginx-759b9ddc77-tglb7 -- /bin/sh
+hostname
+hostname -i
+ls
+exit
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/aa8f1a92-9313-4423-bd0e-47063beab2f8" />
+
+## Info - Kubernetes/Openshift Service
+<pre>
+- service represents a group of load-balance pods from a single deployment
+- service gets an unique IP Address and Name
+- Service can be accessed using its IP Address or its name
+- When a service is accessed using its name, the inbuilt DNS server within Kubernetes/Openshift resolves the name to Server IP, this is called Service discovery
+- there are 2 types of services
+  1. Internal Service
+     - ClusterIP ( kube-proxy does the load-balancing and accessible only within the cluster )
+  2. External Service
+     - NodePort ( kube-proxy does the load-balancing and can be accessed outside the cluster as well )
+     - LoadBalancer 
+       - an external load balancer will do the load-balancing functionality
+       - this is generally used in managed Kubernetes/Openshift cluster running in public cloud environment like AWS/Azure/GKE
+       - i.e generally used in AWS ROSA or Azure ARO ( Managed Openshift Clusters )
+       - in case you wish to use this in your local openshift setup, then we must install MetalLB operator and configure it in your openshift cluster       
+</pre>
+
+## Lab - Creating an internal clusterip service for nginx deployment
+```
+oc project jegan
+oc get deploy
+oc expose deploy/nginx --type=ClusterIP --port=8080
+```
+
+Listing the service
+```
+oc get services
+oc get service
+oc get svc
+```
+
+Describe the service to see detailed meta-data about service
+```
+oc describe svc/nginx
+```
+
+In order to access the clusterip internal service, let's create another test deploy 
+```
+oc create deploy test --image=tektutor/spring-ms:1.0
+oc get pods
+oc exec -it pod/your-test-pod-name -- /bin/sh
+curl http://nginx:8080
+```
+
+How the test pod is able to resolve the nginx service name to its corresponding service ip(i.e how service discovery is working)
+You need to check the /etc/resolv.conf of the test pod, when the kubelet creates the pod container, it configures the /etc/resolv.conf with the default-dns service IP i.e 172.30.0.10, which helps resolving the service name to its service ip
+```
+cat /etc/resolv.conf
+```

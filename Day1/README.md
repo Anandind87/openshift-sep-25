@@ -399,7 +399,10 @@ git clone https://github.com/tektutor/openshift-sep-2025.git
 cd openshift-sep-2025/Day1/CustomDockerImage
 cat Dockerfile
 docker build -t myubuntu:1.0 .
+```
 
+Let's create a container using our custom docker image
+```
 docker run -dit --name ubuntu1 --hostname ubuntu1 myubuntu:1.0 /bin/bash
 ifconfig
 ping 8.8.8.8
