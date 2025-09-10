@@ -21,10 +21,14 @@ oc describe svc/nginx
 
 Accessing nodeport service
 ```
-curl http://master01.ocp4.palmeto.org
-curl http://master02.ocp4.palmeto.org
-curl http://master03.ocp4.palmeto.org
-curl http://worker01.ocp4.palmeto.org
-curl http://worker02.ocp4.palmeto.org
-curl http://worker03.ocp4.palmeto.org
+curl http://master01.ocp4.palmeto.org:32100
+curl http://master02.ocp4.palmeto.org:32100
+curl http://master03.ocp4.palmeto.org:32100
+curl http://worker01.ocp4.palmeto.org:32100
+curl http://worker02.ocp4.palmeto.org:32100
+curl http://worker03.ocp4.palmeto.org:32100
 ```
+
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/f08884cb-35a8-4149-9d8e-71d27aee71a4" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/c36bd777-7b67-4242-82da-1d707253a9c3" />
+
