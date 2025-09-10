@@ -39,3 +39,12 @@ curl http://worker03.ocp4.palmeto.org:32100
 - also, the number of master/workers nodes in dev/qa/prod environment would vary,and the IP address/hostnames of nodes could also vary, hence it is not a scalable/practical approach( not user-friendly )
 - openshift offers a better solution for this, we could create a clusterip service and expose a route using the clusterip service, that way there won't be any security issues
 </pre>
+
+## Lab - Creating an external route for nginx deployment
+```
+oc project jegan
+oc get deploy
+# The command below assumes you have a service 
+oc expose svc/nginx
+oc get route
+```
