@@ -161,11 +161,38 @@ oc rollout undo deploy/nginx
 oc rollout history deploy/nginx
 ```
 
-## Info - Persistent Volume
+## Info - Persistent Volume(PV)
 <pre>
-  
+- is an external storage
+- this is created explicitly by the administrator
+- PVs can be created manually or dynamically using StorageClass
+- PV storage can come from NFS, third storage clusters in your on-prem environment or ebs/s3 buckets from AWS, similar storage solutions from public cloud, etc.,
+- PV will have the following fields
+  - size in MB/GB/TBs
+  - storageclass ( optional )
+  - accessMode
+    - readWriteOnce ( all pods from the same node can have read and write access to this storage)
+    - readWriteMany ( all pods from all nodes in the cluster will have read and write access go the storage )
 </pre>  
-## Info - Persistent Volume Claim
+
+## Info - Persistent Volume Claim (PVC)
 <pre>
-- Any application   
+- Any application that needs external storage, they will have to express their requirement by way of PVC
+- PVC wil have the following fields
+  - size in MB/GB/TBs
+  - storageclass ( optional )
+  - storage type
+  - accessMode
+    - readWriteOnce ( all pods from the same node can have read and write access to this storage)
+    - readWriteMany ( all pods from all nodes in the cluster will have read and write access go the storage ) 
+- the Deployment/StatefulSet that needs external storage will express their requirement with the help of PVC
+- openshift storage controller will scan thru the cluster looking for a matching PV to let the PVC claim and use it
 </pre>
+
+## Info - StorageClass
+<pre>
+- is a way the Persistent Volumes(PV) can be provisioned dynamically(runtime) on demand
+- whenever a PVC is created in the cluster mentioning a storageclass name, the matching storageclass will provision the PV and let the application use that external storage
+- storage class can be implemented for NFS, AWS elastic block storage or AWS S3 buckets, Azure Storage, etc.,
+</pre>
+
