@@ -196,3 +196,13 @@ oc rollout history deploy/nginx
 - storage class can be implemented for NFS, AWS elastic block storage or AWS S3 buckets, Azure Storage, etc.,
 </pre>
 
+## Lab - Deploying wordpress and mysql multi-pod application
+In case you haven't cloned TekTutor training repository already, you may do now.  You need to update the mysql-pv.yml, mysql-pvc.yml, mysql-deploy.yml, wordpress-pv.yml wordpress-pvc.yml wordpress-deploy.yml replacing 'jegan' with your name.  Also you need to update the nfs server IP to 192.168.10.201 in case you are working in Server 2.  Also ensure the mysql and wordpress image version is 13.0 in case of server 2.
+```
+cd ~
+git clone https://github.com/tektutor/openshift-sep-2025.git
+cd openshift-sep-2025/Day3/declarative-manifest-scripts/wordpress
+./deploy.sh
+```
+
+Expected output
