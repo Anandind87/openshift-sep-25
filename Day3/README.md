@@ -160,3 +160,12 @@ oc rollout undo deploy/nginx
 # Check the revision history
 oc rollout history deploy/nginx
 ```
+
+## Info - Persistent Volume
+<pre>
+  
+</pre>  
+## Info - Persistent Volume Claim
+<pre>
+- Any application   
+</pre>
