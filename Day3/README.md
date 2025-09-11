@@ -160,3 +160,62 @@ oc rollout undo deploy/nginx
 # Check the revision history
 oc rollout history deploy/nginx
 ```
+
+## Info - Persistent Volume(PV)
+<pre>
+- is an external storage
+- this is created explicitly by the administrator
+- PVs can be created manually or dynamically using StorageClass
+- PV storage can come from NFS, third storage clusters in your on-prem environment or ebs/s3 buckets from AWS, similar storage solutions from public cloud, etc.,
+- PV will have the following fields
+  - size in MB/GB/TBs
+  - storageclass ( optional )
+  - accessMode
+    - readWriteOnce ( all pods from the same node can have read and write access to this storage)
+    - readWriteMany ( all pods from all nodes in the cluster will have read and write access go the storage )
+</pre>  
+
+## Info - Persistent Volume Claim (PVC)
+<pre>
+- Any application that needs external storage, they will have to express their requirement by way of PVC
+- PVC wil have the following fields
+  - size in MB/GB/TBs
+  - storageclass ( optional )
+  - storage type
+  - accessMode
+    - readWriteOnce ( all pods from the same node can have read and write access to this storage)
+    - readWriteMany ( all pods from all nodes in the cluster will have read and write access go the storage ) 
+- the Deployment/StatefulSet that needs external storage will express their requirement with the help of PVC
+- openshift storage controller will scan thru the cluster looking for a matching PV to let the PVC claim and use it
+</pre>
+
+## Info - StorageClass
+<pre>
+- is a way the Persistent Volumes(PV) can be provisioned dynamically(runtime) on demand
+- whenever a PVC is created in the cluster mentioning a storageclass name, the matching storageclass will provision the PV and let the application use that external storage
+- storage class can be implemented for NFS, AWS elastic block storage or AWS S3 buckets, Azure Storage, etc.,
+</pre>
+
+## Lab - Deploying wordpress and mysql multi-pod application
+In case you haven't cloned TekTutor training repository already, you may do now.  You need to update the below files replacing 'jegan' with your name.  Also you need to update the nfs server IP to 192.168.10.201 in case you are working in Server 2.  Also ensure the mysql and wordpress image version is 13.0 in case of server 2.
+
+<pre>
+mysql-pv.yml
+mysql-pvc.yml
+mysql-deploy.yml
+wordpress-pv.yml 
+wordpress-pvc.yml 
+wordpress-deploy.yml 
+</pre>
+```
+cd ~
+git clone https://github.com/tektutor/openshift-sep-2025.git
+cd openshift-sep-2025/Day3/declarative-manifest-scripts/wordpress
+chmod +x ./deploy.sh ./undeploy.sh
+./deploy.sh
+```
+
+Expected output
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/4c3b7e07-f1de-4be4-ae52-8286b350fd37" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/7005701f-4da7-4d89-80c0-dfc1fe6ca445" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/6003c771-88e8-4da7-a3b1-20d9bc11a270" />
