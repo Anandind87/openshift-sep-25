@@ -211,7 +211,11 @@ wordpress-deploy.yml
 cd ~
 git clone https://github.com/tektutor/openshift-sep-2025.git
 cd openshift-sep-2025/Day3/declarative-manifest-scripts/wordpress
+chmod +x ./deploy.sh ./undeploy.sh
 ./deploy.sh
 ```
 
 Expected output
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/4c3b7e07-f1de-4be4-ae52-8286b350fd37" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/7005701f-4da7-4d89-80c0-dfc1fe6ca445" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/6003c771-88e8-4da7-a3b1-20d9bc11a270" />
