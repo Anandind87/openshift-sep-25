@@ -22,6 +22,8 @@ spec:
       containers:
       - name: wordpress
         image: image-registry.openshift-image-registry.svc:5000/openshift/wordpress:latest
+      # image: image-registry.openshift-image-registry.svc:5000/openshift/wordpress:13.0 - server2
+
         imagePullPolicy: IfNotPresent
 
         volumeMounts:
