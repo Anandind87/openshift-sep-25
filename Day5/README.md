@@ -726,3 +726,13 @@ Choose Weave when:
 - Require good troubleshooting tools
 - Need automatic network discovery
 </pre>
+
+## Lab - CI/CD Pipeline with Jenkins, Ansible and OpenShift
+
+Let's start Jenkins from command-line
+```
+cd ~
+cp /tmp/jenkins.war ~
+java -jar ~/jenkins.war
+```
+
