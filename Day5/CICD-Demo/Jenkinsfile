@@ -9,8 +9,9 @@ pipeline {
             steps {
                 script {
 		    dir("Day5/CICD-Demo/") {
+				 sh "export KUBECONFIG=~/.kube/config"
 		         sh "ansible-playbook start-build-playbook.yml"
-			 sh "oc get is | grep tektutor-spring-hello:latest"
+			     sh "oc get is | grep tektutor-spring-hello:latest"
 		    }
                 }
             }
