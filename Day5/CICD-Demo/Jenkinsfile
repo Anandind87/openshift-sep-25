@@ -10,7 +10,6 @@ pipeline {
                 script {
 		    dir("Day5/CICD-Demo/") {
 		         sh "ansible-playbook start-build-playbook.yml"
-			     sh "oc get is | grep tektutor-spring-hello:latest"
 		    }
                 }
             }
