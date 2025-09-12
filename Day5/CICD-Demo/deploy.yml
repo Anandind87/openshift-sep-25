@@ -16,7 +16,7 @@ spec:
         app: hello
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/cicd/tektutor-spring-hello:latest
+      - image: image-registry.openshift-image-registry.svc:5000/jegan/tektutor-spring-hello:latest
         name: hello
         imagePullPolicy: IfNotPresent
 ---
