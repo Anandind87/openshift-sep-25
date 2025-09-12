@@ -2,4 +2,4 @@
   hosts: localhost
   tasks:
   - name: Start application build followed by image build
-    shell: oc apply -f buildconfig.yml
+    shell: oc apply -f buildconfig.yml  --kubeconfig=~/.kube/config
