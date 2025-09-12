@@ -4,7 +4,7 @@
 ```
 oc project jegan
 oc create deploy jms-producer --image=tektutor/jms-producer:1.0
-oc create deploy jms-producer --image=tektutor/jms-consumer:1.0
+oc create deploy jms-consumer --image=tektutor/jms-consumer:1.0
 oc get pods
 oc logs 
 ```
