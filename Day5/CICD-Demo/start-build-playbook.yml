@@ -1,0 +1,5 @@
+- name: Playbook triggers openshift build
+  hosts: localhost
+  tasks:
+  - name: Start application build followed by image build
+    shell: oc apply -f buildconfig.yml
