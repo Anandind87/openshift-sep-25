@@ -8,7 +8,7 @@
   - debug: var=output
 
   - shell: cat ~/.kube/config
-    registerL output
+    register: output
 
   - debug: var=output
   
