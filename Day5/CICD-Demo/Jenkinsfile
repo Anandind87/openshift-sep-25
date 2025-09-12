@@ -1,0 +1,28 @@
+#!/usr/bin/env groovy
+
+pipeline {
+    agent {
+        label 'built-in'
+    }
+    stages {
+        stage('Invoke Ansible Playbook') {
+            steps {
+                script {
+		    dir("Day5/CICD-Demo/") {
+		         sh "ansible-playbook start-build-playbook.yml"
+			 sh "oc get is | grep tektutor-spring-hello:latest"
+		    }
+                }
+            }
+        }
+	stage("Deploy Hello Microservice into Openshift") {
+	    steps {
+                script {
+		  dir("Day5/CICD-Demo/") {
+		     sh "oc apply -f deploy.yml"
+	  	  }
+		}
+	    }
+	}
+   }
+}
