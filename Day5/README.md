@@ -745,7 +745,7 @@ http://localhost:9090
 
 ##### General section
 <pre>
-Description - tektutor-spring-hello:latest'
+Description - CICD Pipeline Demo
 </pre>
 
 #### Triggers section
