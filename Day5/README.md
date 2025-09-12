@@ -1,5 +1,16 @@
 # Day 5
 
+## Lab - JMS Producer & Consumer
+```
+oc project jegan
+oc create deploy jms-producer --image=tektutor/jms-producer:1.0
+oc create deploy jms-producer --image=tektutor/jms-consumer:1.0
+oc get pods
+oc logs 
+```
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/103d0afe-1e75-4917-9be0-10e071e87355" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/15c9eab5-bee7-4383-bb4f-9f3ff748b156" />
+
 ## Info - LDAP Integration with Openshift
 <pre>
 - You can now login to our Openshift webconsole with your linux user name
