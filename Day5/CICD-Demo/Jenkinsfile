@@ -11,7 +11,6 @@ pipeline {
 		    dir("Day5/CICD-Demo/") {
 		         sh "oc apply -f imagestream.yml"
 		         sh "ansible-playbook start-build-playbook.yml"
-			 sh "oc get is | grep tektutor-spring-hello:latest"
 		    }
                 }
             }

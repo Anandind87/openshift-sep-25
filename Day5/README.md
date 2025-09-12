@@ -1,5 +1,15 @@
 # Day 5
 
+## Post Assessment Link
+<pre>
+https://forms.office.com/r/BGQ84He7Nn
+</pre>
+
+## Feedback Link
+<pre>
+https://forms.office.com/r/U5sYVuq8ZH
+</pre>
+
 ## Lab - JMS Producer & Consumer
 ```
 oc project jegan
@@ -740,3 +750,28 @@ Accessing the Jenkins Dashboard, the port depend
 ```
 http://localhost:9090
 ```
+
+### Jenkins Job
+
+##### General section
+<pre>
+Description - CICD Pipeline Demo
+</pre>
+
+#### Triggers section
+```
+H/02 * * * *
+```
+
+#### Pipeline section
+<pre>
+Definition - Pipeline Script from SCM
+SCM - Git
+Repository Url - https://github.com/tektutor/openshift-sep-2025.git
+Branch specifier - */main
+</pre>
+
+#### Script Path
+<pre>
+Day5/CICD-Demo/Jenkinsfile  
+</pre>

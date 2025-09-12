@@ -1,5 +1,16 @@
 - name: Playbook triggers openshift build
   hosts: localhost
   tasks:
+  - name: Print whoami
+    shell: whoami
+    register: output
+    
+  - debug: var=output
+
+  - shell: cat ~/.kube/config
+    register: output
+
+  - debug: var=output
+  
   - name: Start application build followed by image build
     shell: oc apply -f buildconfig.yml
