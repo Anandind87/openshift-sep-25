@@ -6,12 +6,56 @@ oc project jegan
 oc create deploy jms-producer --image=tektutor/jms-producer:1.0
 oc create deploy jms-consumer --image=tektutor/jms-consumer:1.0
 oc get pods
-oc logs 
+oc logs jms-producer-7675d77f94-cqzmw
+oc logs jms-consumer-59964557d4-d72pj
 ```
 Expected output
 
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/103d0afe-1e75-4917-9be0-10e071e87355" />
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/15c9eab5-bee7-4383-bb4f-9f3ff748b156" />
+
+## Demo - Installing Helm as an Administrator for all users on the Linux server
+```
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+/get_helm.sh
+```
+
+## Info - HELM Overview
+<pre>
+- HELM is a package manager for Kuberentes and Openshift
+- Using Helm package manager we can install/uninstall/upgrade application with Kubernetes/Openshift
+- Helm has opensource repository website from where one could download available helm charts and install onto our cluster
+- Helm can also be used to package our application manifest scripts and bundle as Helm Charts ( tar ball - compressed file with a specific directory structure )
+</pre>
+
+
+## Lab - Creating a custom helm chart to package our wordpress, mysql multipod application
+You need to delete your existing wordpress deployment including the mysql before proceeding.  Rather you could delete your project and create a new project.
+
+```
+cd ~/openshift-sep-2025
+git pull
+cd Day5/helm-chart
+tree scripts
+helm create wordpress
+cp values.yaml wordpress
+tree wordpress
+cd wordpress 
+# edit the values.yaml and customize your changes ( nfs_server_ip, your_name, nfs_wordpress_path, nfs_mysql_path, etc., ) 
+cd templates
+rm *
+rm -rf tests
+cd ../../
+cp scripts/* wordpress/templates
+tree wordpress
+helm package wordpress
+ls
+helm install wordpress wordpress-0.1.0.tgz
+helm list
+oc get pods -w
+```
+
 
 ## Info - LDAP Integration with Openshift
 <pre>
@@ -682,3 +726,17 @@ Choose Weave when:
 - Require good troubleshooting tools
 - Need automatic network discovery
 </pre>
+
+## Lab - CI/CD Pipeline with Jenkins, Ansible and OpenShift
+
+Let's start Jenkins from command-line, you may to give a different port in case you get binding error
+```
+cd ~
+cp /tmp/jenkins.war ~
+java -jar ~/jenkins.war --httpPort=9090
+```
+
+Accessing the Jenkins Dashboard, the port depend
+```
+http://localhost:9090
+```
