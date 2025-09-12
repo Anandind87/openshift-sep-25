@@ -729,10 +729,14 @@ Choose Weave when:
 
 ## Lab - CI/CD Pipeline with Jenkins, Ansible and OpenShift
 
-Let's start Jenkins from command-line
+Let's start Jenkins from command-line, you may to give a different port in case you get binding error
 ```
 cd ~
 cp /tmp/jenkins.war ~
-java -jar ~/jenkins.war
+java -jar ~/jenkins.war --httpPort=9090
 ```
 
+Accessing the Jenkins Dashboard, the port depend
+```
+http://localhost:9090
+```
