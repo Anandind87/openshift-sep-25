@@ -13,21 +13,48 @@ Expected output
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/103d0afe-1e75-4917-9be0-10e071e87355" />
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/15c9eab5-bee7-4383-bb4f-9f3ff748b156" />
 
-## Info - Helm 
-<pre>
-- Helm is a package manager for Kubernetes and Openshift
-- Using Helm, one can package all your manifest(yaml) files and create a package called Helm chart
-- The Helm charts can then be deployed into your Kubernetes/Openshift cluster
-- The Helm works just like apt-get(apt), yum works in linux to install/uninstall/upgrade softwares
-  
-</pre>
-
 ## Demo - Installing Helm as an Administrator for all users on the Linux server
 ```
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
 /get_helm.sh
 ```
+
+## Info - HELM Overview
+<pre>
+- HELM is a package manager for Kuberentes and Openshift
+- Using Helm package manager we can install/uninstall/upgrade application with Kubernetes/Openshift
+- Helm has opensource repository website from where one could download available helm charts and install onto our cluster
+- Helm can also be used to package our application manifest scripts and bundle as Helm Charts ( tar ball - compressed file with a specific directory structure )
+</pre>
+
+
+## Lab - Creating a custom helm chart to package our wordpress, mysql multipod application
+You need to delete your existing wordpress deployment including the mysql before proceeding.  Rather you could delete your project and create a new project.
+
+```
+cd ~/openshift-sep-2025
+git pull
+cd Day5/helm-chart
+tree scripts
+helm create wordpress
+cp values.yaml wordpress
+tree wordpress
+cd wordpress 
+# edit the values.yaml and customize your changes ( nfs_server_ip, your_name, nfs_wordpress_path, nfs_mysql_path, etc., ) 
+cd templates
+rm *
+rm -rf tests
+cd ../../
+cp scripts/* wordpress/templates
+tree wordpress
+helm package wordpress
+ls
+helm install wordpress wordpress-0.1.0.tgz
+helm list
+oc get pods -w
+```
+
 
 ## Info - LDAP Integration with Openshift
 <pre>
