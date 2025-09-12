@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/openjdk-17 as build
+FROM registry.access.redhat.com/ubi8/openjdk-17 AS build
 
 # Set workdir
 RUN mkdir hello 
