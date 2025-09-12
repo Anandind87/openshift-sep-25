@@ -4,6 +4,13 @@
   - name: Print whoami
     shell: whoami
     register: output
+    
   - debug: var=output
+
+  - shell: cat ~/.kube/config
+    registerL output
+
+  - debug: var=output
+  
   - name: Start application build followed by image build
     shell: oc apply -f buildconfig.yml  --kubeconfig=~/.kube/config
