@@ -6,7 +6,8 @@ oc project jegan
 oc create deploy jms-producer --image=tektutor/jms-producer:1.0
 oc create deploy jms-consumer --image=tektutor/jms-consumer:1.0
 oc get pods
-oc logs 
+oc logs jms-producer-7675d77f94-cqzmw
+oc logs jms-consumer-59964557d4-d72pj
 ```
 Expected output
 
