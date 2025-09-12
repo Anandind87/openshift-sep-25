@@ -775,3 +775,23 @@ Branch specifier - */main
 <pre>
 Day5/CICD-Demo/Jenkinsfile  
 </pre>
+
+## Lab - Deploying application from GitHub source code - aka S2I(Source to Image) using Docker strategy
+```
+oc new-project jegan-new
+oc new-app --name=hello https://github.com/tektutor/spring-ms.git --strategy=docker
+oc expose svc/hello
+oc get deploy,svc,route
+oc logs -f bc/hello
+
+```
+
+
+## Lab - Deploying application from GitHub source code - aka S2I(Source to Image) using Source strategy
+```
+oc new-project jegan-new2
+oc new-app --name=hello registry.access.redhat.com/ubi8/openjdk-17~https://github.com/tektutor/spring-ms.git --strategy=source
+oc expose svc/hello
+oc get deploy,svc,route
+oc logs -f bc/hello
+```
